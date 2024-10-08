@@ -24,10 +24,10 @@ export default function ThemeSwitch() {
     )
 
     if (resolvedTheme === 'dark') {
-        return <FaSun fontSize="36" onClick={() => setTheme('light')} />
+        return <FaSun className="cursor-pointer" fontSize="36" onClick={() => setTheme('light')} />
     }
 
     if (resolvedTheme === 'light') {
-        return <FaMoon fontSize="36" onClick={() => setTheme('dark')} />
+        return <FaMoon className="cursor-pointer" fontSize="36" onClick={() => setTheme('dark')} />
     }
 }

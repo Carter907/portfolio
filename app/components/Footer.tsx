@@ -5,7 +5,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
     return (
-        <footer className="dark:bg-neutral-900 bg-neutral-200 text-stone-900  grow p-4 m-auto flex justify-center flex-row gap-10 items-center">
+        <footer className="dark:bg-neutral-900 dark:text-stone-500 bg-neutral-200 text-stone-900  grow p-4 m-auto flex justify-center flex-row gap-10 items-center">
             <a href="https://github.com/Carter907">
                 <FaGithub fontSize="40" className="fill-neutral-500"></FaGithub>
             </a>
