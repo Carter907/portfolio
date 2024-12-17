@@ -9,17 +9,17 @@ export default function Footer() {
             <a href="https://github.com/Carter907">
                 <FaGithub fontSize="40" className="fill-neutral-500"></FaGithub>
             </a>
-            <a href="https://github.com/Carter907">
+            <a href="https://www.hackerrank.com/profile/carter_dev907">
                 <FaHackerrank fontSize="40" className="fill-neutral-500"></FaHackerrank>
             </a>
-            <a href="https://github.com/Carter907">
+            <a href="https://www.chess.com/member/karter_pawn">
                 <FaRegChessKing fontSize="40" className="fill-neutral-500"></FaRegChessKing>
             </a>
-            <a href="https://github.com/Carter907">
+            <a href="https://www.linkedin.com/in/speerscarter/">
                 <FaLinkedin fontSize="40" className="fill-neutral-500"></FaLinkedin>
             </a>
 
-            <p>Copyright © 2023 Carter Speerschneider. All rights reserved.</p>
+            <p>Copyright © 2024 Carter S. All rights reserved.</p>
         </footer>
     );
 };
