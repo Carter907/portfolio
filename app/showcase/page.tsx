@@ -2,8 +2,8 @@ export const runtime = "edge"
 
 export default function Showcase() {
     return (
-        <div>
-            Hello showcase
-        </div>
+        <article className="prose lg:prose-2xl prose-stone dark:prose-invert">
+            Hello
+        </article>
     )
 }
