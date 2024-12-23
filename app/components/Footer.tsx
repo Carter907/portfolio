@@ -1,4 +1,4 @@
-import {FaGithub} from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { FaHackerrank } from "react-icons/fa";
 import { FaRegChessKing } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
