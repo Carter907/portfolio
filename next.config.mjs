@@ -10,6 +10,9 @@ const nextConfig = {
                 pathname: '/u/**',
             }
         ]
+    },
+    experimental: {
+        dynamicIO: true,
     }
 };
 

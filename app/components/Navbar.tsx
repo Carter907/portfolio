@@ -47,8 +47,6 @@ export default function Navbar() {
                         Me</Link>
                     <ThemeSwitch></ThemeSwitch>
                 </div>
-
-
             </nav>
     )
 }

@@ -7,7 +7,6 @@ export default function Home() {
                 <h2 id="home">Home</h2>
                 <p>Welcome to my website. Hopefully you are able to see the contents in it&#39;s
                     entirety by now!</p>
-
             </div>
         </article>
 
