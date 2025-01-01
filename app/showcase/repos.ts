@@ -34,9 +34,9 @@ export async function getPinnedRepos(): Promise<Repo[]> {
     }
   }
 }`
-        // @ts-ignore
-        const  { user: { pinnedItems: { nodes }}} = await octokit.graphql(query, {})
-        return nodes
+        
+        const  data: { user: { pinnedItems: { nodes }}} = await octokit.graphql(query, {})
+        return data.user.pinnedItems.nodes
     } catch (error) {
         console.error('Error fetching pinned repositories:', error);
         throw error;
