@@ -20,7 +20,7 @@ export default function RootLayout({
         <body>
         <Providers>
             <Navbar></Navbar>
-            <div className="mt-40 w-1/2 justify-center flex m-auto min-h-screen">
+            <div className="mt-20 mb-20 w-2/3 justify-center flex m-auto min-h-screen">
                 {children}
             </div>
             <Footer></Footer>

@@ -2,7 +2,7 @@ export const runtime = "edge"
 
 export default function Page() {
     return (
-         <article className="prose lg:prose-2xl prose-stone dark:prose-invert">
+         <article className="prose prose-stone dark:prose-invert min-w-full">
             <div id="content"><h2 id="-about-me">About Me</h2>
                 <p>Welcome to my about-me. I&#39;m Carter and I loving solving
                     problems. </p>
