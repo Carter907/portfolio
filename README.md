@@ -1,2 +1,4 @@
 # portfolio
-My portfolio website, written using Next.js.
+
+This repository is my personal website.
+Visit the link under the description to check it out.
