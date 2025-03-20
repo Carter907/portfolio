@@ -1,9 +1,13 @@
 'use client'
-import React from 'react';
+import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import emailjs from '@emailjs/browser';
 
-export default function Form() {
+export default function ContactForm() {
+
+    const [status, setStatus] = useState(0);
+
+
     const {register, handleSubmit, formState: {errors}} = useForm();
     const sendEmail = (params) => {
 
@@ -16,10 +20,11 @@ export default function Form() {
             })
             .then(
                 () => {
-                    console.log('SUCCESS!');
+                    setStatus(1);
                 },
-                (error) => {
-                    console.log('FAILED...', error.text);
+                () => {
+                    setStatus(2);
+
                 },
             );
     };
@@ -54,6 +59,11 @@ export default function Form() {
                 max: 256,
                 min: 50
             })} />
+
+            <div>
+                {status === 1 ? <p> Sent Email! </p> : status === 2 ?
+                    <p> Please wait to send another message </p> : <p></p>}
+            </div>
 
             <input
                 className="cursor-pointer capitalize self-end px-4 w-fit p-2 rounded hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 dark:bg-stone-800 shadow-md"

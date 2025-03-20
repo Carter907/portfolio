@@ -18,6 +18,10 @@ export default function Experience() {
                 {
                     title: "Procedural",
                     contents: ["C", "Go", "Javascript/Typescript"]
+                },
+                {
+                    title: "Domain Specific Languages",
+                    contents: ["HTML", "CSS", "SQL", "Github Actions", "Make"],
                 }
             ]
         },
@@ -41,10 +45,9 @@ export default function Experience() {
                 <p>I have a wide breadth of experiences with different software, languages,
                     libraries and frameworks. Here are some of my top picks:</p>
 
-                {sections.map((section, i) => (
-                    <Section key={i} title={section.title} subsections={section.subsections}/>
-                ))}
-
+                    {sections.map((section, i) => (
+                        <Section key={i} title={section.title} subsections={section.subsections}/>
+                    ))}
             </div>
         </article>
     )

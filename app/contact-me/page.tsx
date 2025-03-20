@@ -1,4 +1,4 @@
-import Form from "@/app/contact/Form";
+import ContactForm from "@/app/contact-me/ContactForm";
 
 export const runtime = "edge"
 
@@ -17,7 +17,8 @@ export default function Page() {
                     and I&#39;ll be happy to response.
                 </p>
             </article>
-            <Form/>
+            <ContactForm  />
+
         </div>
     )
 }
