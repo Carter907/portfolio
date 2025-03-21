@@ -3,7 +3,7 @@ import fetchComment from "../../lib/fetchComment";
 import createComments from "../../lib/createComment";
 import deleteComments from "../../lib/deleteComment";
 
-export const runtime = 'experiment-edge'
+export const runtime = 'experimental-edge'
 
 export default async function handler(
   req: NextApiRequest,
