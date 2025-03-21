@@ -37,7 +37,7 @@ export default async function deleteComments(
     await redis.lrem(url, 0, JSON.stringify(comment));
 
     return res.status(200).end();
-  } catch (err) {
+  } catch {
     return res.status(400);
   }
 }

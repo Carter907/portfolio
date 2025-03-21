@@ -42,7 +42,7 @@ export default async function createComments(
     await redis.lpush(url, JSON.stringify(comment));
 
     return res.status(200).json(comment);
-  } catch (_) {
+  } catch {
     return res.status(400).json({ message: "Unexpected error occurred." });
   }
 }

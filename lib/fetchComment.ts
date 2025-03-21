@@ -25,7 +25,7 @@ export default async function fetchComment(
     });
 
     return res.status(200).json(comments);
-  } catch (_) {
+  } catch {
     return res.status(400).json({ message: "Unexpected error occurred." });
   }
 }

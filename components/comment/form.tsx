@@ -2,6 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 type CommentFormProps = {
   text: string;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   setText: Function;
   onSubmit: (e: React.FormEvent) => Promise<void>;
 };
@@ -13,7 +14,7 @@ export default function CommentForm({
 }: CommentFormProps) {
   const { isAuthenticated, logout, loginWithPopup } = useAuth0();
 
-  return (
+    return (
     <form onSubmit={onSubmit}>
       <textarea
         className="flex w-full max-h-40 p-3 rounded resize-y bg-gray-200 text-gray-900 placeholder-gray-500"
@@ -36,7 +37,9 @@ export default function CommentForm({
             </button>
             <button
               className="text-gray-500"
-              onClick={() => logout({ returnTo: window.location.origin })}
+              onClick={() => logout({ logoutParams: {
+                  redirect: window.location.origin
+                }})}
             >
               Log Out
             </button>
