@@ -1,4 +1,4 @@
-import {getPinnedRepos} from "@/pages/showcase/repos";
+import {getPinnedRepos} from "@/lib/repos";
 import Repository from "@/pages/showcase/Repository";
 import type {InferGetStaticPropsType} from "next";
 
