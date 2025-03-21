@@ -36,7 +36,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This repository is my personal portfolio website. It displays all my achomplishments and interests. The Next.js fullstack framework was used for it's creation. 
+This repository is my personal portfolio website. It displays all my accomplishment and interests. The Next.js fullstack framework was used for it's creation. 
 
 It includes a blog page that you can comment on.
 
