@@ -1,12 +1,12 @@
+
 import Link from "next/link";
 import Image from "next/image";
 
-import ThemeSwitch from "@/app/components/ThemeSwitch";
-import {FaHome} from "react-icons/fa";
+import {FaHome, FaNewspaper} from "react-icons/fa";
 import { GrProjects } from "react-icons/gr";
 import { LuBrainCircuit } from "react-icons/lu";
 import { BiSolidContact } from "react-icons/bi";
-
+import ThemeSwitch from "@/components/ThemeSwitch";
 
 
 
@@ -32,6 +32,13 @@ export default function Navbar() {
                 Home
                 <FaHome className={"inline w-10"} fontSize="20"/>
             </Link>
+            <div className={"flex flex-row basis-1/2 justify-around"}>
+
+            <Link href="/posts" prefetch
+                  className="self-center rounded-b-3xl border-t-4 border-t-stone-400 dark:border-t-stone-700 hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 dark:bg-stone-800 shadow-md py-2 px-4">
+                Blogs
+                <FaNewspaper className={"inline w-10"} fontSize="20"/>
+            </Link>
             <Link href="/showcase" prefetch
                   className="self-center rounded-b-3xl border-t-4 border-t-stone-400 dark:border-t-stone-700 hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 shadow-md dark:bg-stone-800 py-2 px-4">
                 Showcase
@@ -47,6 +54,7 @@ export default function Navbar() {
                 Contact Me
                 <BiSolidContact className={"inline w-10"} fontSize="20"/>
             </Link>
+            </div>
             <div className={"inline self-center"}>
                 <ThemeSwitch></ThemeSwitch>
             </div>

@@ -1,8 +1,10 @@
-export const runtime = "edge"
 
-export default function Home() {
-    return (
-        <article className="prose prose-stone dark:prose-invert min-w-full">
+export const runtime = "experimental-edge"
+
+function HomePage() {
+  return (
+    <>
+      <article className="prose prose-stone dark:prose-invert min-w-full">
             <div id="content"><h2 id="home">Home</h2>
                 <p>Welcome to my portfolio website. Here is where I have all my achievements and
                     experience laid out in a more comprehensive and personalized manner. </p>
@@ -22,6 +24,8 @@ export default function Home() {
                 </ul>
             </div>
         </article>
-
-    );
+    </>
+  );
 }
+
+export default HomePage;

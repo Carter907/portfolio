@@ -1,7 +1,7 @@
-import Section, {SectionProps} from "@/app/experience/Section";
+import Section, {SectionProps} from "@/pages/experience/Section";
 
-export const runtime = "edge"
-export default function Experience() {
+export const runtime = "experimental-edge"
+export default function ExperiencePage() {
     const sections: SectionProps[] = [
 
         {

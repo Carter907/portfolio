@@ -1,8 +1,8 @@
-import ContactForm from "@/app/contact-me/ContactForm";
+import ContactForm from "@/pages/contact-me/ContactForm";
 
-export const runtime = "edge"
+export const runtime = "experimental-edge"
 
-export default function Page() {
+export default function ContactMePage() {
     return (
         <div
             className="relative w-full flex flex-col items-center space-y-8 min-w-full">
