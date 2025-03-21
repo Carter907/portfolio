@@ -1,4 +1,4 @@
-import {Repo} from '../../lib/repos'
+import {Repo} from '@/lib/repos'
 import {FaGithub} from "react-icons/fa";
 
 interface RepositoryProps {

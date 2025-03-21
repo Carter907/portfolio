@@ -1,4 +1,4 @@
-import ContactForm from "@/pages/contact-me/ContactForm";
+import ContactForm from "@/components/ContactForm";
 
 export const runtime = "experimental-edge"
 

@@ -1,5 +1,5 @@
 import {getPinnedRepos} from "@/lib/repos";
-import Repository from "@/pages/showcase/Repository";
+import Repository from "@/components/Repository";
 import type {InferGetStaticPropsType} from "next";
 
 export const runtime = "experimental-edge"

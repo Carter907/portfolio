@@ -1,4 +1,4 @@
-import Section, {SectionProps} from "@/pages/experience/Section";
+import Section, {SectionProps} from "@/components/Section";
 
 export const runtime = "experimental-edge"
 export default function ExperiencePage() {
