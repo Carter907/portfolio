@@ -42,32 +42,39 @@ export default function ContactForm() {
 
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center space-y-5">
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 w-full">
 
-            <div className="flex flex-row items-center justify-center space-x-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
-                    className="p-2 rounded hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 dark:bg-stone-800 shadow-md"
-                    type="text" placeholder="name" {...register("name", {required: true})} />
+                    className="w-full p-4 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500/50 transition-all placeholder:text-stone-400"
+                    type="text" placeholder="Name" {...register("name", {required: true})} />
                 <input
-                    className="p-2 rounded hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 dark:bg-stone-800 shadow-md"
-                    type="email" placeholder="email" {...register("email", {required: true})} />
+                    className="w-full p-4 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500/50 transition-all placeholder:text-stone-400"
+                    type="email" placeholder="Email" {...register("email", {required: true})} />
             </div>
 
-            <textarea rows={10}
-                      className="p-2 rounded hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 dark:bg-stone-800 shadow-md" {...register("message", {
+            <textarea rows={8}
+                      className="w-full p-4 rounded-xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-stone-500/50 transition-all placeholder:text-stone-400"
+                      placeholder="Your message..."
+                      {...register("message", {
                 required: true,
                 max: 256,
                 min: 50
             })} />
 
-            <div>
-                {status === 1 ? <p> Sent Email! </p> : status === 2 ?
-                    <p> Please wait to send another message </p> : <p></p>}
+            <div className="min-h-[24px]">
+                {status === 1 ?
+                    <p className="text-green-600 dark:text-green-400 font-medium">Message sent successfully!</p> :
+                    status === 2 ?
+                    <p className="text-red-600 dark:text-red-400 font-medium">Please wait before sending another message.</p> :
+                    null}
             </div>
 
             <input
-                className="cursor-pointer capitalize self-end px-4 w-fit p-2 rounded hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 dark:bg-stone-800 shadow-md"
-                type="submit"/>
+                className="px-8 py-3 rounded-xl bg-stone-900 text-white dark:bg-stone-100 dark:text-black font-bold hover:opacity-90 transition-opacity cursor-pointer shadow-lg w-fit self-end"
+                type="submit"
+                value="Send Message"
+            />
         </form>
     );
 }

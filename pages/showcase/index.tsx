@@ -8,14 +8,17 @@ export default function ShowcasePage(
     {allRepos}: InferGetStaticPropsType<typeof getStaticProps>
 ) {
     return (
-        <article className="prose prose-stone dark:prose-invert min-w-full my-40">
-            <div className="flex flex-col gap-40 justify-center items-center">
-
+        <section className="container mx-auto px-4 my-20 max-w-3xl">
+            <div className="flex flex-col gap-8 w-full">
                 {allRepos.length ? (allRepos.map((repo) => (
                     <Repository key={repo.name} repo={repo}/>
-                ))) : <div>Loading...</div>}
+                ))) : (
+                    <div className="text-center text-stone-500 py-10">
+                        Loading repositories...
+                    </div>
+                )}
             </div>
-        </article>
+        </section>
     )
 }
 export async function getStaticProps() {
