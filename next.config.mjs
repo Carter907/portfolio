@@ -10,7 +10,21 @@ const nextConfig = {
                 pathname: '/u/**',
             }
         ]
-    }
+    },
+    async redirects() {
+        return [
+            {
+                source: '/posts',
+                destination: 'https://carters-blog.vercel.app/',
+                permanent: true,
+            },
+            {
+                source: '/posts/:slug*',
+                destination: 'https://carters-blog.vercel.app/',
+                permanent: true,
+            },
+        ]
+    },
 };
 
 export default nextConfig;
