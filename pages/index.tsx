@@ -10,7 +10,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="flex flex-col gap-6 items-start">
         <h1 className="text-5xl sm:text-6xl font-extrabold bg-gradient-to-r from-stone-600 to-stone-900 dark:from-stone-100 dark:to-stone-400 bg-clip-text text-transparent leading-tight">
-          Hi, I'm Carter.
+          Hi, I&#39;m Carter.
         </h1>
         <p className="text-xl text-stone-600 dark:text-stone-300 max-w-2xl leading-relaxed">
           Welcome to my personal portfolio. I am a software engineer passionate about building accessible, performant, and beautiful web experiences. 
