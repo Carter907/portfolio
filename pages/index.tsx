@@ -13,8 +13,8 @@ export default function HomePage() {
           Hi, I&#39;m Carter.
         </h1>
         <p className="text-xl text-stone-600 dark:text-stone-300 max-w-2xl leading-relaxed">
-          Welcome to my personal portfolio. I am a software engineer passionate about building accessible, performant, and beautiful web experiences. 
-          Here you can find my projects, experience, and contact information.
+          I am an aspiring software engineer specializing in high-performance, low-level systems with a strong foundation in C++. 
+          I am currently a student seeking C++ internship opportunities to apply my skills within a professional environment.
         </p>
         <div className="flex gap-4 mt-2">
             <Link href="/contact-me" className="px-6 py-3 rounded-xl bg-stone-900 text-white dark:bg-stone-100 dark:text-black font-semibold hover:opacity-90 transition-opacity shadow-lg">

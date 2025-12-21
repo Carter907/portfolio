@@ -65,7 +65,7 @@ export default function ExperiencePage() {
                 </h1>
                 <p className="text-lg text-stone-600 dark:text-stone-300 max-w-3xl leading-relaxed">
                     I am an aspiring software engineer specializing in high-performance, low-level systems with a strong foundation in C++.
-                    I am currently seeking internship opportunities to apply my skills in C++, Java, Python, and Bash within a professional environment.
+                    I am currently a student seeking internship opportunities to apply my skills in C++, Java, Python, and Bash within a professional environment.
                 </p>
             </section>
 
