@@ -36,7 +36,7 @@ export default function Navbar() {
 
             <Link href="https://carters-blog.vercel.app/" prefetch={false} target="_blank"
                   className="self-center rounded-b-3xl border-t-4 border-t-stone-400 dark:border-t-stone-700 hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 dark:bg-stone-800 shadow-md py-2 px-4">
-                Blogs
+                Blog
                 <FaNewspaper className={"inline w-10"} fontSize="20"/>
             </Link>
             <Link href="/showcase" prefetch
