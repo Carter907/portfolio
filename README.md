@@ -90,7 +90,9 @@ Don't forget to give the project a star! Thanks again!
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Source code is distributed under the MIT License. See [`LICENSE`](./LICENSE) for more information.
+
+Personal content, copy, experience details, and branding remain Copyright © 2025–2026 Carter Speerschneider (All Rights Reserved).
 
 
 
