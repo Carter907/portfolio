@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Repo } from "@/lib/repos";
 import { FaGithub, FaStar } from "react-icons/fa";
 import distanceToNow from "@/lib/dateRelative";
@@ -6,7 +7,26 @@ interface RepositoryProps {
   repo: Repo;
 }
 
+function formatUtcDate(isoDate: string): string {
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(isoDate));
+}
+
 export default function Repository({ repo }: RepositoryProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const updatedLabel = mounted
+    ? distanceToNow(new Date(repo.updatedAt))
+    : formatUtcDate(repo.updatedAt);
+
   return (
     <article className="flex flex-col w-full bg-surface border border-line hover:border-line-strong rounded-lg transition-colors">
       <div className="p-6 flex flex-col h-full">
@@ -47,9 +67,7 @@ export default function Repository({ repo }: RepositoryProps) {
             <span>{repo.stargazerCount}</span>
           </div>
 
-          <div className="ml-auto">
-            Updated {distanceToNow(new Date(repo.updatedAt))}
-          </div>
+          <div className="ml-auto">Updated {updatedLabel}</div>
         </div>
       </div>
     </article>

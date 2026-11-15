@@ -1,0 +1,2 @@
+/posts https://carters-blog.vercel.app/ 301
+/posts/* https://carters-blog.vercel.app/ 301
