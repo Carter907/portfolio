@@ -29,7 +29,7 @@ export default function Footer() {
     <footer className="w-full border-t border-line bg-canvas">
       <div className="w-full max-w-4xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-xs font-mono text-ink-subtle">
-          Copyright © 2024 Carter S. All rights reserved.
+          Copyright © {new Date().getFullYear()} Carter S. All rights reserved.
         </p>
 
         <div className="flex items-center gap-5">

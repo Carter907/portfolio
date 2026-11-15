@@ -1,8 +1,7 @@
+import Head from "next/head";
 import Link from "next/link";
 import { GrProjects } from "react-icons/gr";
 import { LuBrainCircuit } from "react-icons/lu";
-
-export const runtime = "experimental-edge";
 
 const NAV_CARDS = [
   {
@@ -36,7 +35,16 @@ const TECH_STACK = [
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-16 w-full">
+    <>
+      <Head>
+        <title key="title">Carter&#39;s Portfolio</title>
+        <meta
+          key="description"
+          name="description"
+          content="Carter S. — Aspiring software engineer specializing in high-performance, low-level systems and C++."
+        />
+      </Head>
+      <div className="flex flex-col gap-16 w-full">
       {/* Hero Section */}
       <section className="flex flex-col gap-5 items-start">
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-ink leading-tight">
@@ -103,6 +111,7 @@ export default function HomePage() {
           ))}
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

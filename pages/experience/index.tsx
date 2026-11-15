@@ -1,3 +1,4 @@
+import Head from "next/head";
 import {
   LuCode2,
   LuCpu,
@@ -6,8 +7,6 @@ import {
   LuSettings,
   LuWrench,
 } from "react-icons/lu";
-
-export const runtime = "experimental-edge";
 
 interface SkillGroup {
   title: string;
@@ -65,7 +64,16 @@ const CATEGORIES: Category[] = [
 
 export default function ExperiencePage() {
   return (
-    <div className="flex flex-col gap-12 w-full">
+    <>
+      <Head>
+        <title key="title">Experience &amp; Skills — Carter&#39;s Portfolio</title>
+        <meta
+          key="description"
+          name="description"
+          content="Programming languages, low-level systems competencies, and tooling experience."
+        />
+      </Head>
+      <div className="flex flex-col gap-12 w-full">
       {/* Header Section */}
       <section className="flex flex-col gap-4 items-start">
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-ink leading-tight">
@@ -111,6 +119,7 @@ export default function ExperiencePage() {
           </div>
         ))}
       </div>
-    </div>
+      </div>
+    </>
   );
 }

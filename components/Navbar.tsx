@@ -3,8 +3,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import ThemeSwitch from "@/components/ThemeSwitch";
 
-export const runtime = "edge";
-
 interface NavItem {
   label: string;
   href: string;
