@@ -1,37 +1,52 @@
-import "tailwindcss/tailwind.css";
-import type {AppProps} from "next/app";
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
 import Head from "next/head";
-import {Auth0Provider} from "@auth0/auth0-react";
-import {ThemeProvider} from "next-themes";
+import { Inter, JetBrains_Mono } from "next/font/google";
+import { Auth0Provider } from "@auth0/auth0-react";
+import { ThemeProvider } from "next-themes";
 import Footer from "@/components/Footer";
-import React from "react";
 import Navbar from "@/components/Navbar";
 
-export const runtime = "experimental-edge"
+export const runtime = "experimental-edge";
 
-export default function MyApp({Component, pageProps}: AppProps) {
-    return (
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
-        <ThemeProvider attribute="class" defaultTheme="system">
-            <Auth0Provider
-                clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID}
-                domain={process.env.NEXT_PUBLIC_AUTH0_DOMAIN}
-            >
-                <Head>
-                    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                    <meta
-                        name="description"
-                        content="Welcome to my portfolio and blog. Take a look to learn more about my experience and ideas."
-                    />
-                    <title>Carter&#39;s Portfolio</title>
-                </Head>
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
 
-                <Navbar></Navbar>
-                <div className="mt-20 mb-20 w-2/3 justify-center flex m-auto min-h-screen">
-                    <Component {...pageProps} />
-                </div>
-                <Footer></Footer>
-            </Auth0Provider>
-        </ThemeProvider>
-    );
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
+      <Auth0Provider
+        clientId={process.env.NEXT_PUBLIC_AUTH0_CLIENT_ID}
+        domain={process.env.NEXT_PUBLIC_AUTH0_DOMAIN}
+      >
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta
+            name="description"
+            content="Welcome to my portfolio and blog. Take a look to learn more about my experience and ideas."
+          />
+          <title>Carter&#39;s Portfolio</title>
+        </Head>
+
+        <div
+          className={`${inter.variable} ${jetbrainsMono.variable} font-sans min-h-screen flex flex-col bg-canvas text-ink`}
+        >
+          <Navbar />
+          <main className="flex-1 w-full max-w-4xl mx-auto px-6 py-12 sm:py-16">
+            <Component {...pageProps} />
+          </main>
+          <Footer />
+        </div>
+      </Auth0Provider>
+    </ThemeProvider>
+  );
 }

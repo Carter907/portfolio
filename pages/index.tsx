@@ -1,67 +1,106 @@
-import Link from 'next/link';
+import Link from "next/link";
 import { GrProjects } from "react-icons/gr";
 import { LuBrainCircuit } from "react-icons/lu";
 
-export const runtime = "experimental-edge"
+export const runtime = "experimental-edge";
+
+const NAV_CARDS = [
+  {
+    href: "/experience",
+    title: "Experience",
+    description:
+      "Explore my professional background, skills, and the technologies I work with on a daily basis.",
+    icon: LuBrainCircuit,
+  },
+  {
+    href: "/showcase",
+    title: "Showcase",
+    description:
+      "A collection of my projects, experiments, and open-source contributions.",
+    icon: GrProjects,
+  },
+];
+
+const TECH_STACK = [
+  "C++",
+  "C",
+  "Rust",
+  "Java",
+  "Python",
+  "TypeScript",
+  "Bash",
+  "CMake",
+  "Docker",
+  "Git",
+];
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-16 w-full py-10">
+    <div className="flex flex-col gap-16 w-full">
       {/* Hero Section */}
-      <section className="flex flex-col gap-6 items-start">
-        <h1 className="text-5xl sm:text-6xl font-extrabold bg-gradient-to-r from-stone-600 to-stone-900 dark:from-stone-100 dark:to-stone-400 bg-clip-text text-transparent leading-tight">
+      <section className="flex flex-col gap-5 items-start">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-ink leading-tight">
           Hi, I&#39;m Carter.
         </h1>
-        <p className="text-xl text-stone-600 dark:text-stone-300 max-w-2xl leading-relaxed">
-          I am an aspiring software engineer specializing in high-performance, low-level systems with a strong foundation in C++. 
-          I am currently a student seeking C++ internship opportunities to apply my skills within a professional environment.
+        <p className="text-lg text-ink-muted max-w-2xl leading-relaxed">
+          I am an aspiring software engineer specializing in high-performance,
+          low-level systems with a strong foundation in C++. I am currently a
+          student seeking C++ internship opportunities to apply my skills within
+          a professional environment.
         </p>
-        <div className="flex gap-4 mt-2">
-            <Link href="/contact-me" className="px-6 py-3 rounded-xl bg-stone-900 text-white dark:bg-stone-100 dark:text-black font-semibold hover:opacity-90 transition-opacity shadow-lg">
-                Get in Touch
-            </Link>
-            <Link href="/showcase" className="px-6 py-3 rounded-xl border border-stone-300 dark:border-stone-700 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                View Work
-            </Link>
+        <div className="flex flex-wrap gap-3 mt-2">
+          <Link
+            href="/contact-me"
+            className="px-5 py-2.5 rounded-lg bg-ink text-canvas hover:bg-accent transition-colors text-sm font-medium"
+          >
+            Get in Touch
+          </Link>
+          <Link
+            href="/showcase"
+            className="px-5 py-2.5 rounded-lg border border-line-strong bg-surface text-ink hover:border-accent hover:text-accent transition-colors text-sm font-medium"
+          >
+            View Work
+          </Link>
         </div>
       </section>
 
       {/* Navigation Cards */}
       <section className="grid md:grid-cols-2 gap-6 w-full">
-        <Link href="/experience" className="group p-8 border border-stone-200 dark:border-stone-800 rounded-2xl hover:border-stone-400 dark:hover:border-stone-600 transition-all hover:shadow-md bg-stone-50 dark:bg-white/5">
-            <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-white dark:bg-stone-800 rounded-xl shadow-sm group-hover:scale-105 transition-transform">
-                    <LuBrainCircuit className="text-2xl text-stone-700 dark:text-stone-300"/>
-                </div>
-                <h3 className="text-2xl font-bold text-stone-800 dark:text-stone-100">Experience</h3>
+        {NAV_CARDS.map(({ href, title, description, icon: Icon }) => (
+          <Link
+            key={href}
+            href={href}
+            className="group p-6 bg-surface border border-line hover:border-line-strong rounded-lg transition-colors"
+          >
+            <div className="flex items-center gap-3.5 mb-3">
+              <div className="p-2.5 bg-surface-muted border border-line rounded-md text-ink-muted group-hover:text-accent transition-colors">
+                <Icon className="text-xl" />
+              </div>
+              <h2 className="text-xl font-semibold text-ink group-hover:text-accent transition-colors">
+                {title}
+              </h2>
             </div>
-            <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
-                Explore my professional background, skills, and the technologies I work with on a daily basis.
+            <p className="text-sm text-ink-muted leading-relaxed">
+              {description}
             </p>
-        </Link>
-        
-         <Link href="/showcase" className="group p-8 border border-stone-200 dark:border-stone-800 rounded-2xl hover:border-stone-400 dark:hover:border-stone-600 transition-all hover:shadow-md bg-stone-50 dark:bg-white/5">
-            <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-white dark:bg-stone-800 rounded-xl shadow-sm group-hover:scale-105 transition-transform">
-                    <GrProjects className="text-2xl text-stone-700 dark:text-stone-300"/>
-                </div>
-                <h3 className="text-2xl font-bold text-stone-800 dark:text-stone-100">Showcase</h3>
-            </div>
-            <p className="text-stone-600 dark:text-stone-400 leading-relaxed">
-                A collection of my projects, experiments, and open-source contributions.
-            </p>
-        </Link>
+          </Link>
+        ))}
       </section>
 
       {/* Tech Stack */}
-      <section>
-        <h2 className="text-2xl font-bold mb-6 text-stone-800 dark:text-stone-100">Technical Focus</h2>
-        <div className="flex flex-wrap gap-3">
-            {['C++', 'C', 'Rust', 'Java', 'Python', 'TypeScript', 'Bash', 'CMake', 'Docker', 'Git'].map((tech) => (
-                <span key={tech} className="px-4 py-2 bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-lg text-sm font-medium text-stone-700 dark:text-stone-300">
-                    {tech}
-                </span>
-            ))}
+      <section className="pt-4 border-t border-line">
+        <h2 className="text-xs font-mono uppercase tracking-wider text-ink-subtle mb-4">
+          Technical Focus
+        </h2>
+        <div className="flex flex-wrap gap-2.5">
+          {TECH_STACK.map((tech) => (
+            <span
+              key={tech}
+              className="px-3 py-1.5 bg-surface border border-line rounded-md font-mono text-xs text-ink-muted"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
       </section>
     </div>

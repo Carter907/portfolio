@@ -1,63 +1,83 @@
-
 import Link from "next/link";
 import Image from "next/image";
-
-import {FaHome, FaNewspaper} from "react-icons/fa";
-import { GrProjects } from "react-icons/gr";
-import { LuBrainCircuit } from "react-icons/lu";
-import { BiSolidContact } from "react-icons/bi";
+import { useRouter } from "next/router";
 import ThemeSwitch from "@/components/ThemeSwitch";
 
+export const runtime = "edge";
 
+interface NavItem {
+  label: string;
+  href: string;
+  external?: boolean;
+}
 
-export const runtime = "edge"
+const NAV_ITEMS: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "Blog", href: "https://carters-blog.vercel.app/", external: true },
+  { label: "Showcase", href: "/showcase" },
+  { label: "Experience", href: "/experience" },
+  { label: "Contact Me", href: "/contact-me" },
+];
 
 export default function Navbar() {
-    return (
-        <nav
-            className="flex flex-row justify-around dark:bg-neutral-900 bg-neutral-300 p-4">
+  const { pathname } = useRouter();
 
-            <Image
-                className="dark rounded-3xl object-cover p-1 dark:bg-neutral-800 bg-neutral-200 border-stone-800"
-                src="https://avatars.githubusercontent.com/u/102479896?v=4"
-                alt="Profile Picture"
-                width={70}
-                height={38}
-                priority
-            />
+  return (
+    <header className="w-full border-b border-line bg-canvas">
+      <nav
+        aria-label="Primary navigation"
+        className="w-full max-w-4xl mx-auto px-6 py-4 flex items-center justify-between gap-4"
+      >
+        <Link
+          href="/"
+          className="shrink-0 rounded-full focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
+          aria-label="Home"
+        >
+          <Image
+            className="w-9 h-9 rounded-full object-cover border border-line"
+            src="https://avatars.githubusercontent.com/u/102479896?v=4"
+            alt="Carter's avatar"
+            width={36}
+            height={36}
+            priority
+          />
+        </Link>
 
+        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 sm:gap-x-7">
+          {NAV_ITEMS.map((item) => {
+            const isActive = !item.external && pathname === item.href;
+            const linkClass = `py-1 text-sm font-medium transition-colors border-b-2 ${
+              isActive
+                ? "text-ink border-accent"
+                : "text-ink-muted border-transparent hover:text-ink"
+            }`;
 
-            <Link href="/" prefetch
-                  className="self-center rounded-b-3xl border-t-4 border-t-stone-400 dark:border-t-stone-700 hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 dark:bg-stone-800 shadow-md py-2 px-4">
-                Home
-                <FaHome className={"inline w-10"} fontSize="20"/>
-            </Link>
-            <div className={"flex flex-row basis-1/2 justify-around"}>
+            if (item.external) {
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                >
+                  {item.label}
+                </a>
+              );
+            }
 
-            <Link href="https://carters-blog.vercel.app/" prefetch={false} target="_blank"
-                  className="self-center rounded-b-3xl border-t-4 border-t-stone-400 dark:border-t-stone-700 hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 dark:bg-stone-800 shadow-md py-2 px-4">
-                Blog
-                <FaNewspaper className={"inline w-10"} fontSize="20"/>
-            </Link>
-            <Link href="/showcase" prefetch
-                  className="self-center rounded-b-3xl border-t-4 border-t-stone-400 dark:border-t-stone-700 hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 shadow-md dark:bg-stone-800 py-2 px-4">
-                Showcase
-                <GrProjects className={"inline w-10"} fontSize="20"/>
-            </Link>
-            <Link href="/experience" prefetch
-                  className="self-center rounded-b-3xl border-t-4 border-t-stone-400 dark:border-t-stone-700 hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 shadow-md dark:bg-stone-800 py-2 px-4">
-                Experience
-                <LuBrainCircuit className={"inline w-10"} fontSize="20"/>
-            </Link>
-            <Link href="/contact-me" prefetch
-                  className="self-center rounded-b-3xl border-t-4 border-t-stone-400 dark:border-t-stone-700 hover:bg-stone-100 bg-neutral-200 duration-200 dark:hover:bg-neutral-700 shadow-md dark:bg-stone-800 py-2 px-4">
-                Contact Me
-                <BiSolidContact className={"inline w-10"} fontSize="20"/>
-            </Link>
-            </div>
-            <div className={"inline self-center"}>
-                <ThemeSwitch></ThemeSwitch>
-            </div>
-        </nav>
-    )
+            return (
+              <Link key={item.href} href={item.href} prefetch className={linkClass}>
+                {item.label}
+              </Link>
+            );
+          })}
+        </div>
+
+        <div className="shrink-0">
+          <ThemeSwitch />
+        </div>
+      </nav>
+    </header>
+  );
 }
