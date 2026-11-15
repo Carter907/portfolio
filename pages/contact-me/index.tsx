@@ -6,11 +6,11 @@ export default function ContactMePage() {
   return (
     <>
       <Head>
-        <title key="title">Contact Me — Carter&#39;s Portfolio</title>
+        <title key="title">Contact Me — Carter Speerschneider</title>
         <meta
           key="description"
           name="description"
-          content="Get in touch with Carter S. about internships, systems engineering, or open-source collaboration."
+          content="Get in touch with Carter Speerschneider about full-stack software engineering internships, product development, or open-source collaboration."
         />
       </Head>
       <div className="flex flex-col gap-12 w-full">
@@ -20,9 +20,10 @@ export default function ContactMePage() {
             Contact Me.
           </h1>
           <p className="text-lg text-ink-muted max-w-2xl leading-relaxed">
-            I would love to get to know more about you and your experiences. Feel
-            free to send me an email about anything relevant like an open source
-            collaboration and I&#39;ll be happy to respond.
+            I&#39;m actively seeking Full-Stack Software Engineering internship
+            opportunities and always enjoy connecting with other engineers. Feel
+            free to reach out about roles, projects, or open-source
+            collaboration.
           </p>
         </section>
 

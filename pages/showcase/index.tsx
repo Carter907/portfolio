@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { getPinnedRepos, type Repo } from "@/lib/repos";
+import { FEATURED_PROJECTS, FEATURED_REPO_NAMES } from "@/lib/projects";
+import FeaturedProjectCard from "@/components/FeaturedProjectCard";
 import Repository from "@/components/Repository";
 import type { InferGetStaticPropsType } from "next";
 
@@ -39,14 +41,18 @@ export default function ShowcasePage({
     return () => controller.abort();
   }, []);
 
+  const additionalRepos = repos.filter(
+    (repo) => !FEATURED_REPO_NAMES.has(repo.name.toLowerCase())
+  );
+
   return (
     <>
       <Head>
-        <title key="title">Showcase — Carter&#39;s Portfolio</title>
+        <title key="title">Showcase — Carter Speerschneider</title>
         <meta
           key="description"
           name="description"
-          content="Pinned repositories, projects, and open-source work by Carter S."
+          content="Featured full-stack and backend projects alongside pinned GitHub repositories by Carter Speerschneider."
         />
       </Head>
       <div className="flex flex-col gap-12 w-full">
@@ -55,22 +61,39 @@ export default function ShowcasePage({
             Showcase
           </h1>
           <p className="text-lg text-ink-muted max-w-2xl leading-relaxed">
-            A collection of my pinned projects, experiments, and open-source
-            contributions on GitHub.
+            Selected full-stack applications, developer tooling, and backend
+            systems I&#39;ve built and contributed to, plus additional pinned
+            repositories from GitHub.
           </p>
         </section>
 
         <section className="flex flex-col gap-5 w-full">
-          {repos.length > 0 ? (
-            repos.map((repo) => <Repository key={repo.name} repo={repo} />)
-          ) : (
-            <div className="p-8 bg-surface border border-line rounded-lg text-center font-mono text-sm text-ink-subtle">
-              {isLoading
-                ? "Loading repositories..."
-                : "No pinned repositories available right now."}
-            </div>
-          )}
+          <h2 className="text-xs font-mono uppercase tracking-wider text-ink-subtle">
+            Featured Projects
+          </h2>
+          {FEATURED_PROJECTS.map((project) => (
+            <FeaturedProjectCard key={project.title} project={project} />
+          ))}
         </section>
+
+        {(isLoading || additionalRepos.length > 0) && (
+          <section className="flex flex-col gap-5 w-full">
+            <h2 className="text-xs font-mono uppercase tracking-wider text-ink-subtle">
+              More on GitHub
+            </h2>
+            {additionalRepos.length > 0 ? (
+              <div className="grid md:grid-cols-2 gap-5">
+                {additionalRepos.map((repo) => (
+                  <Repository key={repo.name} repo={repo} />
+                ))}
+              </div>
+            ) : (
+              <div className="p-8 bg-surface border border-line rounded-lg text-center font-mono text-sm text-ink-subtle">
+                Loading additional GitHub repositories...
+              </div>
+            )}
+          </section>
+        )}
       </div>
     </>
   );

@@ -26,9 +26,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <meta
           key="description"
           name="description"
-          content="Carter S. — Software engineering portfolio focused on high-performance, low-level systems and C++."
+          content="Carter Speerschneider — Computer Science student at USF seeking Full-Stack Software Engineering internships. Experience with TypeScript, React, TanStack, Hono, Go, Python, and PostgreSQL."
         />
-        <title key="title">Carter&#39;s Portfolio</title>
+        <title key="title">Carter Speerschneider — Portfolio</title>
       </Head>
 
       <div
